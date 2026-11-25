@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Salon Privé Slots • RB88.ID VIP</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080c16;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .portal-container {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      background: #090e1a;
+      border-left: 1px solid rgba(245, 200, 76, 0.2);
+      border-right: 1px solid rgba(245, 200, 76, 0.2);
+      padding-bottom: 40px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(9, 14, 26, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 200, 76, 0.3);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-back {
+      background: linear-gradient(180deg, #191f2c 0%, #121622 100%);
+      border: 1px solid rgba(245, 200, 76, 0.3);
+      color: #f5c84c;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.15);
+    }
+    .title-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFD700 40%, #E0A926 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+    .status-pill {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 8px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+    .content {
+      padding: 14px;
+    }
+    .vip-card {
+      background: linear-gradient(180deg, #191f2c 0%, #121622 55%, #090c14 100%);
+      border: 1px solid rgba(245, 200, 76, 0.4);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -2px 6px rgba(0, 0, 0, 0.85);
+    }
+    .vip-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .badge-verified {
+      background: rgba(245, 200, 76, 0.2);
+      border: 1px solid rgba(245, 200, 76, 0.4);
+      color: #ffd885;
+      font-size: 8px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .slot-card {
+      background: linear-gradient(180deg, #191f2c 0%, #121622 55%, #090c14 100%);
+      border: 1px solid rgba(245, 200, 76, 0.35);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -2px 6px rgba(0, 0, 0, 0.85);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .slot-card:hover {
+      transform: translateY(-4px);
+      border-color: #ffd885;
+      box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.95), 0 0 24px rgba(245, 200, 76, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    }
+    .thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #0a0d16;
+      overflow: hidden;
+    }
+    .thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .slot-card:hover .thumb-wrap img {
+      transform: scale(1.08);
+    }
+    .tag-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: linear-gradient(135deg, #FAD77A 0%, #E5A932 50%, #B87C17 100%);
+      color: #0b0f19;
+      font-size: 7.5px;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .card-body {
+      padding: 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .prov-title {
+      font-size: 8px;
+      font-weight: 900;
+      color: #f5c84c;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .game-name {
+      font-size: 11.5px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .meta-row {
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 8px;
+    }
+    .rtp-val {
+      color: #34d399;
+      font-weight: 900;
+      font-family: monospace;
+    }
+    .btn-launch {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #FAD77A 0%, #E5A932 50%, #B87C17 100%);
+      color: #090e1a;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 0 20px rgba(245, 200, 76, 0.4);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-container">
+    <!-- Header -->
+    <div class="header">
+      <a href="/" class="btn-back">← Lobi Publik</a>
+      <div class="title-badge">👑 Salon Privé Slots</div>
+      <div class="status-pill"><div class="pulse-dot"></div> SG-01 VIP</div>
+    </div>
+
+    <div class="content">
+      <!-- VIP Credentials Card -->
+      <div class="vip-card">
+        <div class="vip-card-header">
+          <div>
+            <div style="font-size: 12px; font-weight: 900; color: #ffd885;">BLACK CARD SUITE</div>
+            <div style="font-size: 9px; color: #94a3b8; margin-top: 2px;">Dedicated High-Limit Encrypted Server • RTP 99.6%</div>
+          </div>
+          <span class="badge-verified">VERIFIED VIP</span>
+        </div>
+      </div>
+
+      <!-- Private Slots 3D Metallic Grid -->
+      <div class="grid">
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="/assets/aistudio/08b0b06d4b43026b_c25ae0cf.png" alt="Olympus VIP">
+            <span class="tag-badge">HIGH ROLLER</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PRAGMATIC VIP</div>
+              <div class="game-name">Olympus VIP 1000</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x15,000</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.4%</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80" alt="Mahjong Ways Private">
+            <span class="tag-badge">MAX MULTIPLIER</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PG SOFT SALON</div>
+              <div class="game-name">Mahjong Ways Private</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x25,000</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.6%</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="/assets/aistudio/9711c282577d0327_25a44aac.png" alt="Starlight Super VIP">
+            <span class="tag-badge">VIP EXCLUSIVE</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PRAGMATIC SALON</div>
+              <div class="game-name">Starlight Super VIP</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x15,000</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.3%</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="/assets/aistudio/6a67e9127bfac72e_e36f6f67.png" alt="Bonanza Diamond">
+            <span class="tag-badge">HIGH LIMIT</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PRAGMATIC PRIVATE</div>
+              <div class="game-name">Bonanza Diamond Club</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x21,100</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.5%</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=80" alt="Aztec Royal Suite">
+            <span class="tag-badge">MEGA JACKPOT</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PG SOFT VIP</div>
+              <div class="game-name">Aztec Royal Suite</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x100,000</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.4%</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/#private-slots" class="slot-card">
+          <div class="thumb-wrap">
+            <img src="/assets/aistudio/053a2cfe22053f75_57469742.png" alt="Spaceman VIP Orbit">
+            <span class="tag-badge">HIGH STAKES</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="prov-title">PRAGMATIC CRASH</div>
+              <div class="game-name">Spaceman VIP Orbit</div>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">Max Multiplier</span>
+              <span style="color: #ffd885; font-weight: 900;">x5,000</span>
+            </div>
+            <div class="meta-row">
+              <span style="color: #94a3b8;">RTP Privat</span>
+              <span class="rtp-val">99.2%</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Button -->
+      <a href="/#private-slots" class="btn-launch">Masuk Salon Privé di Aplikasi RB88 →</a>
+    </div>
+  </div>
+</body>
+</html>
+
